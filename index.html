@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>個人簡歷 - 姓名</title>
+  <style>
+    :root{--accent:#4f46e5;--muted:#6b7280;--bg:#f8fafc;--card:#ffffff}
+    *{box-sizing:border-box}
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;line-height:1.5;margin:0;background:var(--bg);color:#111}
+    .container{max-width:1000px;margin:28px auto;padding:20px}
+    header{display:flex;gap:20px;align-items:center}
+    .avatar{width:120px;height:120px;border-radius:16px;background:linear-gradient(135deg,var(--accent),#06b6d4);display:flex;align-items:center;justify-content:center;flex:0 0 120px;color:white;font-weight:700;font-size:28px}
+    .person{flex:1}
+    .name{font-size:1.6rem;margin:0}
+    .role{color:var(--muted);margin-top:6px}
+    .contacts{margin-top:10px;display:flex;gap:12px;flex-wrap:wrap}
+    a.contact{color:var(--accent);text-decoration:none;font-weight:600}
+
+    main{margin-top:22px;display:grid;grid-template-columns:1fr 2fr;gap:20px}
+
+    /* Left column */
+    .card{background:var(--card);padding:18px;border-radius:12px;box-shadow:0 6px 18px rgba(15,23,42,0.06)}
+    .skills h3,.timeline h3,.projects h3{margin:0 0 12px 0}
+    .skill{margin-bottom:12px}
+    .skill .meta{display:flex;justify-content:space-between;font-size:0.9rem;color:var(--muted);margin-bottom:6px}
+    .progress{height:10px;background:#e6eef8;border-radius:999px;overflow:hidden}
+    .progress > i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),#06b6d4);width:0%;transition:width 1s ease}
+
+    /* Timeline */
+    .timeline-list{position:relative;padding-left:20px;margin:0}
+    .timeline-list::before{content:'';position:absolute;left:6px;top:0;bottom:0;width:2px;background:#e5e7eb;border-radius:2px}
+    .timeline-item{position:relative;padding:10px 0 10px 20px}
+    .timeline-item::before{content:'';position:absolute;left:-6px;top:16px;width:12px;height:12px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px #fff}
+    .timeline-item .period{font-weight:600;color:var(--accent)}
+    .timeline-item .title{margin:4px 0;color:#111}
+    .timeline-item .desc{color:var(--muted);font-size:0.95rem}
+
+    /* Projects on right column */
+    .projects-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+    .project-card{display:flex;flex-direction:column;border-radius:10px;overflow:hidden;background:linear-gradient(180deg,#fff,#fbfdff);border:1px solid #eef2ff}
+    .project-thumb{height:110px;background:#eef2ff;display:flex;align-items:center;justify-content:center;color:var(--muted);font-weight:700}
+    .project-body{padding:12px}
+    .project-title{font-weight:700;margin:0 0 6px 0}
+    .project-role{color:var(--muted);font-size:0.9rem;margin-bottom:6px}
+    .project-desc{font-size:0.95rem;color:#374151}
+    .project-links{margin-top:10px}
+    .btn{display:inline-block;padding:8px 12px;border-radius:8px;background:var(--accent);color:white;text-decoration:none;font-weight:600}
+
+    footer{margin-top:22px;text-align:center;color:var(--muted);font-size:0.9rem}
+
+    /* Responsive */
+    @media (max-width:600px){
+      .container{padding:14px}
+      header{flex-direction:row;align-items:center}
+      .avatar{width:88px;height:88px;border-radius:12px;font-size:22px}
+      main{grid-template-columns:1fr;}
+      .projects-grid{grid-template-columns:1fr}
+    }
+  </style>
+  <script>
+    // When the DOM loads, animate progress bars to their data-value
+    document.addEventListener('DOMContentLoaded',()=>{
+      document.querySelectorAll('.progress > i').forEach(el=>{
+        const v = el.getAttribute('data-value')||'0';
+        // small delay for nicer effect
+        setTimeout(()=> el.style.width = v + '%', 150);
+      })
+    })
+  </script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="avatar" aria-hidden="true">KH</div>
+      <div class="person">
+        <h1 class="name">姓名 姓氏</h1>
+        <div class="role">前端工程師 / UI 設計</div>
+        <div class="contacts">
+          <a class="contact" href="mailto:you@example.com">you@example.com</a>
+          <a class="contact" href="tel:+886912345678">+886 912 345 678</a>
+          <a class="contact" href="#">LinkedIn</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <section class="card skills" aria-labelledby="skills-heading">
+          <h3 id="skills-heading">技能</h3>
+          <div class="skill">
+            <div class="meta"><span>HTML & CSS</span><span>90%</span></div>
+            <div class="progress"><i data-value="90" style="width:0%"></i></div>
+          </div>
+          <div class="skill">
+            <div class="meta"><span>JavaScript / TypeScript</span><span>80%</span></div>
+            <div class="progress"><i data-value="80" style="width:0%"></i></div>
+          </div>
+          <div class="skill">
+            <div class="meta"><span>UI 設計 / Figma</span><span>75%</span></div>
+            <div class="progress"><i data-value="75" style="width:0%"></i></div>
+          </div>
+        </section>
+
+        <section class="card timeline" aria-labelledby="exp-heading">
+          <h3 id="exp-heading">經歷</h3>
+          <ol class="timeline-list">
+            <li class="timeline-item">
+              <div class="period">2023 - 至今</div>
+              <div class="title">資深前端工程師 — 公司 A</div>
+              <div class="desc">負責 SPA 開發、前端架構優化與效能提升。</div>
+            </li>
+            <li class="timeline-item">
+              <div class="period">2020 - 2023</div>
+              <div class="title">前端工程師 — 公司 B</div>
+              <div class="desc">參與多個跨平台專案，專注於元件化與可用性設計。</div>
+            </li>
+            <li class="timeline-item">
+              <div class="period">2018 - 2020</div>
+              <div class="title">UI 設計師 — 公司 C</div>
+              <div class="desc">從事介面設計、使用者測試與原型驗證。</div>
+            </li>
+          </ol>
+        </section>
+      </div>
+
+      <aside>
+        <section class="card projects" aria-labelledby="proj-heading">
+          <h3 id="proj-heading">專案作品集</h3>
+          <div class="projects-grid">
+            <article class="project-card">
+              <div class="project-thumb">P1</div>
+              <div class="project-body">
+                <div class="project-title">作品一 — 電商平台</div>
+                <div class="project-role">角色：前端工程師</div>
+                <div class="project-desc">建立商品頁面與結帳流程，優化載入速度與 SEO。</div>
+                <div class="project-links"><a class="btn" href="#">觀看作品</a></div>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <div class="project-thumb">P2</div>
+              <div class="project-body">
+                <div class="project-title">作品二 — 企業官網</div>
+                <div class="project-role">角色：全端工程師</div>
+                <div class="project-desc">負責響應式樣式、CMS 串接與部署流程。</div>
+                <div class="project-links"><a class="btn" href="#">查看詳情</a></div>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <div class="project-thumb">P3</div>
+              <div class="project-body">
+                <div class="project-title">作品三 — 設計系作品集</div>
+                <div class="project-role">角色：UI 設計師</div>
+                <div class="project-desc">設計系統與互動原型，進行使用者研究與可用性測試。</div>
+                <div class="project-links"><a class="btn" href="#">連結</a></div>
+              </div>
+            </article>
+          </div>
+        </section>
+      </aside>
+    </main>
+
+    <footer>
+      © 2025 姓名。欲替換內容請編輯 `index.html`。
+    </footer>
+  </div>
+</body>
+</html>
