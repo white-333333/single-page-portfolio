@@ -10,7 +10,7 @@
       body{font-family:system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;line-height:1.5;margin:0;background:var(--bg);color:#111}
       .container{max-width:1000px;margin:28px auto;padding:20px}
       header{display:flex;gap:20px;align-items:center}
-      .avatar{width:120px;height:120px;border-radius:16px;background:linear-gradient(135deg,var(--accent),#06b6d4);display:flex;align-items:center;justify-content:center;flex:0 0 120px;color:white;font-weight:700;font-size:28px}
+      .avatar{width:120px;height:120px;border-radius:16px;flex:0 0 120px;object-fit:cover;object-position:center}
       .person{flex:1}
       .name{font-size:1.6rem;margin:0}
       .role{color:var(--muted);margin-top:6px}
@@ -43,7 +43,7 @@
 
       .projects-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
       .project-card{display:flex;flex-direction:column;border-radius:10px;overflow:hidden;background:linear-gradient(180deg,#fff,#fbfdff);border:1px solid #eef2ff}
-      .project-thumb{height:110px;background:#eef2ff;display:flex;align-items:center;justify-content:center;color:var(--muted);font-weight:700}
+      .project-thumb{height:110px;width:100%;object-fit:cover;object-position:center}
       .project-body{padding:12px}
       .project-title{font-weight:700;margin:0 0 6px 0}
       .project-role{color:var(--muted);font-size:0.9rem;margin-bottom:6px}
@@ -82,7 +82,7 @@
   <body>
     <div class="container">
       <header>
-        <div class="avatar" aria-hidden="true">KH</div>
+        <img src="avatar.png" alt="簡亦晴" class="avatar">
         <div class="person">
           <h1 class="name">簡亦晴</h1>
           <div class="role">大學生 / 醫資一</div>
@@ -141,7 +141,7 @@
           <h3 id="proj-heading">作品集</h3>
           <div class="projects-grid">
             <article class="project-card">
-              <div class="project-thumb">P1</div>
+              <img src="p1.jpg" alt="花樣24 — 流與岸 溺" class="project-thumb">
               <div class="project-body">
                 <div class="project-title">花樣24 — 流與岸 溺</div>
                 <div class="project-role">角色：燈光設計與執行</div>
@@ -151,7 +151,7 @@
             </article>
 
             <article class="project-card">
-              <div class="project-thumb">P2</div>
+              <img src="p2.png" alt="花樣23 — 柳岸花明又一團 純屬虛構" class="project-thumb">
               <div class="project-body">
                 <div class="project-title">花樣23 — 柳岸花明又一團 純屬虛構</div>
                 <div class="project-role">角色：燈光設計</div>
@@ -161,7 +161,7 @@
             </article>
 
             <article class="project-card">
-              <div class="project-thumb">P3</div>
+              <img src="p3.png" alt="高中話劇社 — 社長" class="project-thumb">
               <div class="project-body">
                 <div class="project-title">高中話劇社 — 社長</div>
                 <div class="project-role">角色：社長</div>
