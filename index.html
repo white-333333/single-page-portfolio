@@ -2,92 +2,109 @@
 <html lang="zh-TW">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>個人簡歷 - 簡亦晴</title>
-  <style>
-    :root{--accent:#4f46e5;--muted:#6b7280;--bg:#f8fafc;--card:#ffffff}
-    *{box-sizing:border-box}
-    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;line-height:1.5;margin:0;background:var(--bg);color:#111}
-    .container{max-width:1000px;margin:28px auto;padding:20px}
-    header{display:flex;gap:20px;align-items:center}
-    .avatar{width:120px;height:120px;border-radius:16px;background:linear-gradient(135deg,var(--accent),#06b6d4);display:flex;align-items:center;justify-content:center;flex:0 0 120px;color:white;font-weight:700;font-size:28px}
-    .person{flex:1}
-    .name{font-size:1.6rem;margin:0}
-    .role{color:var(--muted);margin-top:6px}
-    .contacts{margin-top:10px;display:flex;gap:12px;flex-wrap:wrap}
-    a.contact{color:var(--accent);text-decoration:none;font-weight:600;transition:color 0.3s ease}
-    a.contact:hover{color:#1f2937}
+  <!DOCTYPE html>
+  <html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>個人簡歷 - 簡亦晴</title>
+    <style>
+      :root{--accent:#4f46e5;--muted:#6b7280;--bg:#f8fafc;--card:#ffffff}
+      *{box-sizing:border-box}
+      body{font-family:system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;line-height:1.5;margin:0;background:var(--bg);color:#111}
+      .container{max-width:1000px;margin:28px auto;padding:20px}
+      header{display:flex;gap:20px;align-items:center}
+      .avatar{width:120px;height:120px;border-radius:16px;background:linear-gradient(135deg,var(--accent),#06b6d4);display:flex;align-items:center;justify-content:center;flex:0 0 120px;color:white;font-weight:700;font-size:28px}
+      .person{flex:1}
+      .name{font-size:1.6rem;margin:0}
+      .role{color:var(--muted);margin-top:6px}
+      .contacts{margin-top:10px;display:flex;gap:12px;flex-wrap:wrap}
+      a.contact{color:var(--accent);text-decoration:none;font-weight:600;transition:color 0.3s ease}
+      a.contact:hover{color:#1f2937}
 
-    main{margin-top:22px;display:grid;grid-template-columns:1fr 2fr;gap:20px}
+      .nav-buttons{margin-top:20px;display:flex;gap:12px;flex-wrap:wrap}
+      .nav-btn{padding:10px 16px;border-radius:8px;background:var(--accent);color:white;text-decoration:none;font-weight:600;border:none;cursor:pointer;transition:background 0.3s ease;font-size:1rem}
+      .nav-btn:hover{background:#2d20ac}
 
-    /* Left column */
-    .card{background:var(--card);padding:18px;border-radius:12px;box-shadow:0 6px 18px rgba(15,23,42,0.06)}
-    .skills h3,.timeline h3,.projects h3{margin:0 0 12px 0}
-    .skill{margin-bottom:12px}
-    .skill .meta{display:flex;justify-content:space-between;font-size:0.9rem;color:var(--muted);margin-bottom:6px}
-    .progress{height:10px;background:#e6eef8;border-radius:999px;overflow:hidden}
-    .progress > i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),#06b6d4);width:0%;transition:width 1s ease}
+      html{scroll-behavior:smooth}
 
-    /* Timeline */
-    .timeline-list{position:relative;padding-left:20px;margin:0}
-    .timeline-list::before{content:'';position:absolute;left:6px;top:0;bottom:0;width:2px;background:#e5e7eb;border-radius:2px}
-    .timeline-item{position:relative;padding:10px 0 10px 20px}
-    .timeline-item::before{content:'';position:absolute;left:-6px;top:16px;width:12px;height:12px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px #fff}
-    .timeline-item .period{font-weight:600;color:var(--accent)}
-    .timeline-item .title{margin:4px 0;color:#111}
-    .timeline-item .desc{color:var(--muted);font-size:0.95rem}
+      main{margin-top:22px;display:flex;flex-direction:column;gap:20px}
 
-    /* Projects on right column */
-    .projects-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
-    .project-card{display:flex;flex-direction:column;border-radius:10px;overflow:hidden;background:linear-gradient(180deg,#fff,#fbfdff);border:1px solid #eef2ff}
-    .project-thumb{height:110px;background:#eef2ff;display:flex;align-items:center;justify-content:center;color:var(--muted);font-weight:700}
-    .project-body{padding:12px}
-    .project-title{font-weight:700;margin:0 0 6px 0}
-    .project-role{color:var(--muted);font-size:0.9rem;margin-bottom:6px}
-    .project-desc{font-size:0.95rem;color:#374151}
-    .project-links{margin-top:10px}
-    .btn{display:inline-block;padding:8px 12px;border-radius:8px;background:var(--accent);color:white;text-decoration:none;font-weight:600;transition:background 0.3s ease}
-    .btn:hover{background:#2d20ac}
+      .card{background:var(--card);padding:18px;border-radius:12px;box-shadow:0 6px 18px rgba(15,23,42,0.06)}
+      .skills h3,.timeline h3,.projects h3{margin:0 0 12px 0}
+      .skill{margin-bottom:12px}
+      .skill .meta{display:flex;justify-content:space-between;font-size:0.9rem;color:var(--muted);margin-bottom:6px}
+      .progress{height:10px;background:#e6eef8;border-radius:999px;overflow:hidden}
+      .progress > i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),#06b6d4);width:0%;transition:width 1s ease}
 
-    footer{margin-top:22px;text-align:center;color:var(--muted);font-size:0.9rem}
+      .timeline-list{position:relative;padding-left:20px;margin:0}
+      .timeline-list::before{content:'';position:absolute;left:6px;top:0;bottom:0;width:2px;background:#e5e7eb;border-radius:2px}
+      .timeline-item{position:relative;padding:10px 0 10px 20px}
+      .timeline-item::before{content:'';position:absolute;left:-6px;top:16px;width:12px;height:12px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px #fff}
+      .timeline-item .period{font-weight:600;color:var(--accent)}
+      .timeline-item .title{margin:4px 0;color:#111}
+      .timeline-item .desc{color:var(--muted);font-size:0.95rem}
 
-    /* Responsive */
-    @media (max-width:600px){
-      .container{padding:14px}
-      header{flex-direction:row;align-items:center}
-      .avatar{width:88px;height:88px;border-radius:12px;font-size:22px}
-      main{grid-template-columns:1fr;}
-      .projects-grid{grid-template-columns:1fr}
-    }
-  </style>
-  <script>
-    // When the DOM loads, animate progress bars to their data-value
-    document.addEventListener('DOMContentLoaded',()=>{
-      document.querySelectorAll('.progress > i').forEach(el=>{
-        const v = el.getAttribute('data-value')||'0';
-        // small delay for nicer effect
-        setTimeout(()=> el.style.width = v + '%', 150);
+      .projects-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+      .project-card{display:flex;flex-direction:column;border-radius:10px;overflow:hidden;background:linear-gradient(180deg,#fff,#fbfdff);border:1px solid #eef2ff}
+      .project-thumb{height:110px;background:#eef2ff;display:flex;align-items:center;justify-content:center;color:var(--muted);font-weight:700}
+      .project-body{padding:12px}
+      .project-title{font-weight:700;margin:0 0 6px 0}
+      .project-role{color:var(--muted);font-size:0.9rem;margin-bottom:6px}
+      .project-desc{font-size:0.95rem;color:#374151}
+      .project-links{margin-top:10px}
+      .btn{display:inline-block;padding:8px 12px;border-radius:8px;background:var(--accent);color:white;text-decoration:none;font-weight:600;transition:background 0.3s ease}
+      .btn:hover{background:#2d20ac}
+
+      footer{margin-top:22px;text-align:center;color:var(--muted);font-size:0.9rem}
+
+      @media (max-width:600px){
+        .container{padding:14px}
+        header{flex-direction:row;align-items:center}
+        .avatar{width:88px;height:88px;border-radius:12px;font-size:22px}
+        .projects-grid{grid-template-columns:1fr}
+        .nav-buttons{flex-direction:column}
+        .nav-btn{width:100%}
+      }
+    </style>
+    <script>
+      document.addEventListener('DOMContentLoaded',()=>{
+        document.querySelectorAll('.progress > i').forEach(el=>{
+          const v = el.getAttribute('data-value')||'0';
+          setTimeout(()=> el.style.width = v + '%', 150);
+        })
+        document.querySelectorAll('.nav-btn').forEach(btn=>{
+          btn.addEventListener('click',(e)=>{
+            e.preventDefault();
+            const target = document.getElementById(btn.getAttribute('data-section'));
+            if(target) target.scrollIntoView({behavior:'smooth'});
+          })
+        })
       })
-    })
-  </script>
-</head>
-<body>
-  <div class="container">
-    <header>
-      <div class="avatar" aria-hidden="true">KH</div>
-      <div class="person">
-        <h1 class="name">簡亦晴</h1>
-        <div class="role">大學生 / 醫資一</div>
-        <div class="contacts">
-          <a class="contact" href="mailto:414570667@m365.fju.edu.tw">414570667@m365.fju.edu.tw</a>
-          <a class="contact" href="tel:+886123456789">+886 123 456 789</a>
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="avatar" aria-hidden="true">KH</div>
+        <div class="person">
+          <h1 class="name">簡亦晴</h1>
+          <div class="role">大學生 / 醫資一</div>
+          <div class="contacts">
+            <a class="contact" href="mailto:414570667@m365.fju.edu.tw">414570667@m365.fju.edu.tw</a>
+            <a class="contact" href="tel:+886123456789">+886 123 456 789</a>
+          </div>
         </div>
-      </div>
-    </header>
+      </header>
 
-    <main>
-      <div style="display:flex;flex-direction:column;gap:16px">
-        <section class="card skills" aria-labelledby="skills-heading">
+      <div class="nav-buttons">
+        <button class="nav-btn" data-section="skills-section">技能</button>
+        <button class="nav-btn" data-section="exp-section">經歷</button>
+        <button class="nav-btn" data-section="projects-section">作品集</button>
+      </div>
+
+      <main>
+        <section class="card skills" id="skills-section" aria-labelledby="skills-heading">
           <h3 id="skills-heading">技能</h3>
           <div class="skill">
             <div class="meta"><span>英文</span><span>90%</span></div>
@@ -103,7 +120,7 @@
           </div>
         </section>
 
-        <section class="card timeline" aria-labelledby="exp-heading">
+        <section class="card timeline" id="exp-section" aria-labelledby="exp-heading">
           <h3 id="exp-heading">經歷</h3>
           <ol class="timeline-list">
             <li class="timeline-item">
@@ -123,10 +140,8 @@
             </li>
           </ol>
         </section>
-      </div>
 
-      <aside>
-        <section class="card projects" aria-labelledby="proj-heading">
+        <section class="card projects" id="projects-section" aria-labelledby="proj-heading">
           <h3 id="proj-heading">作品集</h3>
           <div class="projects-grid">
             <article class="project-card">
@@ -160,12 +175,12 @@
             </article>
           </div>
         </section>
-      </aside>
-    </main>
+      </main>
 
+      <footer>
+        © 2025 姓名。欲替換內容請編輯 `index.html`。
+      </footer>
+    </div>
+  </body>
+  </html>
     <footer>
-      © 2025 姓名。欲替換內容請編輯 `index.html`。
-    </footer>
-  </div>
-</body>
-</html>
